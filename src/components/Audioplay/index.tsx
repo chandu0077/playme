@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { Songdata } from "@/interfaces/songdata";
 import { IAudio } from "@/interfaces/filedetails";
+import { NextRouter, useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Props {}
 const Audioplay: React.FC<Props> = ({}) => {
+  const router: NextRouter = useRouter();
   const [audioDuration, setAudioDuration] = useState<string>("0:00");
   const [currentDuration, setCurrentDuration] = useState<string>("0:00");
   const [audioData, setAudioData] = useState<IAudio[]>();
@@ -13,6 +17,12 @@ const Audioplay: React.FC<Props> = ({}) => {
   const [song, setSong] = useState<Songdata>();
   const [audioIndex, setAudioIndex] = useState<number>(0);
   const [wallpaper, setWallpaper] = useState<string>("");
+
+  const dummyImgs = [
+    "img/jacinto-1.jpg",
+    "img/eminem.jpg",
+    "img/astronaut.avif",
+  ];
 
   useEffect(() => {
     const audioFile = localStorage.getItem("audioFile");
@@ -92,7 +102,9 @@ const Audioplay: React.FC<Props> = ({}) => {
       } else if (audioIndex === 1) {
         setWallpaper("img/eminem.jpg");
       } else {
-        setWallpaper("img/astronaut.avif");
+        let randomIdx = Math.floor(Math.random() * (2 - 0 + 1) + 0);
+        let randomImg = dummyImgs[randomIdx];
+        setWallpaper(randomImg);
       }
       console.log("currentIdx", audioIndex);
       audioData[audioIndex];
@@ -108,6 +120,8 @@ const Audioplay: React.FC<Props> = ({}) => {
         console.log("PREV STATE", prevState);
         return (prevState += 1);
       });
+    } else {
+      toast("No More Audios to play!!");
     }
   };
 
@@ -117,12 +131,21 @@ const Audioplay: React.FC<Props> = ({}) => {
         console.log("PREV STATE", prevState);
         return (prevState -= 1);
       });
+    } else {
+      toast("No More Audios to play!!");
     }
+  };
+
+  const handleRoute = () => {
+    router.push("/");
   };
 
   return (
     <div className="relative min-h-[100vh] bg-[#9E8F88] flex justify-center align-center">
-      <h1 className="absolute top-10 -left-3 text-4xl bold text-[#EFE7D5] -rotate-45">
+      <h1
+        onClick={handleRoute}
+        className="cursor-pointer absolute top-10 -left-3 text-4xl bold text-[#EFE7D5] -rotate-45"
+      >
         PLAY ME
       </h1>
 
@@ -164,7 +187,7 @@ const Audioplay: React.FC<Props> = ({}) => {
             <span>{audioDuration}</span>
           </div>
         </div>
-
+        <ToastContainer />
         {/* Controls */}
         <div className="w-full flex justify-center mt-8">
           <div className="flex justify-between w-[150px]">

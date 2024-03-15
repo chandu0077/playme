@@ -1,5 +1,7 @@
 import { useState } from "react";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Props {}
 const Fileupload: React.FC<Props> = ({}) => {
@@ -39,7 +41,16 @@ const Fileupload: React.FC<Props> = ({}) => {
           const output = [result];
           localStorage.setItem("audioFile", JSON.stringify(output));
         }
+        const songInput = document.getElementById(
+          "songInput",
+        ) as HTMLInputElement;
+        if (songInput) {
+          songInput.value = "";
+        }
       };
+      toast("Audio File Saved, Now Go Play !!");
+    } else {
+      toast("No Audio File chosen !!");
     }
   };
 
@@ -52,10 +63,11 @@ const Fileupload: React.FC<Props> = ({}) => {
             className="w-[200px] bg-[#F9F0DE]"
             type="file"
             accept=".mp3, .wav"
+            id="songInput"
             onChange={handleFileChange}
           />
         </div>
-
+        <ToastContainer />
         <button
           className="p-2 w-auto bg-[#F9F0DE] mt-9 rounded text-[#4D2E34]"
           onClick={handleSaveFile}
