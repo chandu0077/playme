@@ -23,7 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, maximum-scale=1"
         />
-        <link rel="icon" href="/favicon.svg" />
       </Head>
       <ChakraProvider theme={theme}>
         <NextNProgress
