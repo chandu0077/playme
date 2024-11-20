@@ -55,9 +55,9 @@ const Fileupload: React.FC<Props> = ({}) => {
   };
 
   return (
-    <div className="w-2/4 h-[100vh] relative bg-[#9e8f88]">
-      <h1 className="absolute right-0 top-20 text-8xl text-[#f9f0de]">PLAY</h1>
-      <div className="flex flex-col h-full justify-center items-center p-[80px]">
+    <div className="w-full xl:w-2/4 h-[100vh] relative bg-[#9e8f88]">
+      <h1 className="absolute top-1 right-[7rem] xl:right-0 xl:top-20 text-6xl xl:text-8xl text-[#f9f0de]">PLAY</h1>
+      <div className="flex mt-[16px] flex-col h-full justify-center items-center p-[80px]">
         <div className="flex justify-center">
           <input
             className="w-[200px] bg-[#F9F0DE]"

@@ -144,7 +144,7 @@ const Audioplay: React.FC<Props> = ({}) => {
     <div className="relative min-h-[100vh] bg-[#9E8F88] flex justify-center align-center">
       <h1
         onClick={handleRoute}
-        className="cursor-pointer absolute top-10 -left-3 text-4xl bold text-[#EFE7D5] -rotate-45"
+        className="hidden xl:block cursor-pointer absolute top-10 -left-3 text-4xl bold text-[#EFE7D5] -rotate-45"
       >
         PLAY ME
       </h1>
