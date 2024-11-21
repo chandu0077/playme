@@ -56,11 +56,20 @@ const Fileupload: React.FC<Props> = ({}) => {
 
   return (
     <div className="w-full xl:w-2/4 h-[100vh] relative bg-[#9e8f88]">
-      <h1 className="absolute top-1 right-[7rem] xl:right-0 xl:top-20 text-6xl xl:text-8xl text-[#f9f0de]">PLAY</h1>
-      <div className="flex mt-[16px] flex-col h-full justify-center items-center p-[80px]">
+      <div>
+        <p className="absolute hidden xl:block xl:text-8xl text-[#f9f0de] xl:right-0 xl:top-20">
+          PLAY
+        </p>
+        <div className=" xl:hidden flex justify-center items-center">
+          <p className="absolute text-center top-2  text-4xl text-[#f9f0de]">
+            PLAY ME
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col h-full justify-center items-center p-[80px]">
         <div className="flex justify-center">
           <input
-            className="w-[200px] bg-[#F9F0DE]"
+            className="w-[200px] rounded-md bg-[#F9F0DE]"
             type="file"
             accept=".mp3, .wav"
             id="songInput"
