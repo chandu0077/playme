@@ -17,7 +17,7 @@ const Listensong = () => {
     }
   };
   return (
-    <div className="w-full xl:w-2/4 h-[100vh] bg-[#f9f0de] relative">
+    <div className="w-full xl:w-2/4 h-[50%] xl:h-[100vh] bg-[#f9f0de] relative">
       <h1 className="absolute hidden xl:block xl:left-0 xl:top-20 text-6xl xl:text-8xl text-[#9e8f88]">
         ME
       </h1>

@@ -55,7 +55,7 @@ const Fileupload: React.FC<Props> = ({}) => {
   };
 
   return (
-    <div className="w-full xl:w-2/4 h-[100vh] relative bg-[#9e8f88]">
+    <div className="w-full xl:w-2/4 h-[50%] xl:h-[100vh] relative bg-[#9e8f88]">
       <div>
         <p className="absolute hidden xl:block xl:text-8xl text-[#f9f0de] xl:right-0 xl:top-20">
           PLAY
